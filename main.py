@@ -10,8 +10,8 @@ import sys
 
 def args_parser(args):
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('-r', type=str, help='Run date script')
-    parser.add_argument('-o', type=str, help='Start date of execute')
+    parser.add_argument('-r', type=str)
+    parser.add_argument('-o', type=str)
 
     args_data = parser.parse_args(args=args)
 
