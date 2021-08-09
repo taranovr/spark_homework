@@ -49,11 +49,9 @@ def run_spark_job(read_path,output_path):
     offense_codes_df = offense_codes_df.withColumn("CODE", offense_codes_df["CODE"].cast(IntegerType()))
     crime_df = crime_df.withColumn("OFFENSE_CODE", crime_df["OFFENSE_CODE"].cast(IntegerType()))
 
-    print("Before deleting duplicates {0} rows left".format(offense_codes_df.count()))
     offense_codes_df.createOrReplaceTempView("offense_codes_df")
     offense_codes_df = sq.sql("SELECT CODE, MAX(NAME) as NAME FROM OFFENSE_CODES_DF GROUP BY CODE")
     offense_codes_df = offense_codes_df.withColumn("NAME", split("NAME", '-')[0])
-    print("After deleting duplicates {0} rows left".format(offense_codes_df.count()))
 
 
     crime_df_distinct = crime_df.dropDuplicates(["DISTRICT", "INCIDENT_NUMBER", "YEAR", "MONTH", "LAT", "LONG"]) \
