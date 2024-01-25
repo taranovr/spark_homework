@@ -1,9 +1,8 @@
 # spark_homework
-Сборка витрины на PySpark
+Building a datamart with PySpark
 
-Для запуска использовал  https://github.com/cluster-apps-on-docker/spark-standalone-cluster-on-docker
+To run it, I used https://github.com/cluster-apps-on-docker/spark-standalone-cluster-on-docker
 
-Приложен ноутбук, в котором визуально виден результат выполнения операций.
+I've attached a notebook where the results of the operations are visually presented.
 
-Входной точкой для запуска spark-submit является run.sh, указывается 2 позиционных агрумента - папка откуда читаем файлы и куда записываем результат
-Далее run.sh запускает сабмит с использованием main.py
+The entry point for running spark-submit is the run.sh script, which takes 2 positional arguments - the folder from which we read files and the destination folder for the result. Then, run.sh executes the submit using main.py.
